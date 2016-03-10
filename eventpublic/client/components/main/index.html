@@ -10,9 +10,7 @@
     <![endif]-->
 </head>
 <template name="layout">
-    {{> Header}}
     {{> yield}}
-    {{> HomeFooter}}
 </template>
 <template name="Header">
     <div class="home-header">
@@ -20,13 +18,14 @@
         <a href="#" class="home-navHandler visible-xs"><span class="fa fa-bars"></span></a>
         <div class="home-nav">
             <ul class="navbar-add-event">
-                <li><a href="/login" class="btn btn-green">List a Property</a></li>
+                <li><a href="/sign-in" class="btn btn-green">List a Property</a></li>
+                <li><a href="/sign-in" class="btn btn-primary">Sign In</a></li>
             </ul>
         </div>
         
     </div>
 </template>
-<template name="login">
+<template name="signIn">
     {{> Header}}
     <div class="home-wrapper">
         <div class="row">
@@ -37,12 +36,19 @@
     </div>
     {{> HomeFooter}}
 </template>
-
+<template name="notFound">
+  Ups... nobody here?
+</template>
+<template name="loading">
+  Ups...  Loading?
+</template>
 <template name="index">
+    {{> Header}}
     {{> HomeSlider}}
     {{> HomeSearch}}
     {{> HomeTitle}}
     {{> HomeContent}}
+    {{> HomeFooter}}
 </template>
 
 <template name="HomeSlider">
