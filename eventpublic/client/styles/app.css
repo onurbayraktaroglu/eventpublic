@@ -1329,7 +1329,6 @@ a.userHandler .counter {
 .mapPlaceholder {
     text-align: center;
     width: 100%;
-    padding-top: 100px;
     float: left;
     overflow: hidden;
 }
@@ -5133,7 +5132,10 @@ blockquote {
     border:1px solid #d0d1d5;
 }
 
-
+.map-container {
+  width: 100%;
+  max-width: 100%;
+}   
 /* Media Queries */
 
 @media screen and (max-width: 1199px) {

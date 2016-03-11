@@ -10,14 +10,15 @@ windowResizeHandler = function() {
     $('.closeLeftSide').height(contentHeight);
     $('#wrapper').height(contentHeight);
     $('#mapView').height(contentHeight);
+    $('.map-container').height(contentHeight);
     $('#content').height(contentHeight);
     setTimeout(function() {
         $('.commentsFormWrapper').width(contentWidth);
     }, 300);
 
-    if (map) {
-        google.maps.event.trigger(map, 'resize');
-    }
+    //if (map) {
+    //    google.maps.event.trigger(map, 'resize');
+    //}
 
     // Add custom scrollbar for left side navigation
     if(windowWidth > 767) {
@@ -54,4 +55,35 @@ windowResizeHandler = function() {
     $('.areaSlider .sliderTooltip').css('left', areaSliderLeft);
 }
 
+navHandler = function(){
+  var navExpanded = false;
+  $('.navHandler, .closeLeftSide').click(function() {
+      if(!navExpanded) {
+          $('.logo').addClass('expanded');
+          $('#leftSide').addClass('expanded');
+          if(windowWidth < 768) {
+              $('.closeLeftSide').show();
+          }
+          $('.hasSub').addClass('hasSubActive');
+          $('.leftNav').addClass('bigNav');
+          if(windowWidth > 767) {
+              $('.full').addClass('m-full');
+          }
+          windowResizeHandler();
+          navExpanded = true;
+      } else {
+          $('.logo').removeClass('expanded');
+          $('#leftSide').removeClass('expanded');
+          $('.closeLeftSide').hide();
+          $('.hasSub').removeClass('hasSubActive');
+          $('.bigNav').slimScroll({ destroy: true });
+          $('.leftNav').removeClass('bigNav');
+          $('.leftNav').css('overflow', 'visible');
+          $('.full').removeClass('m-full');
+          navExpanded = false;
+      }
+  });
+}
+
+Template.home.onRendered(navHandler);
 Template.home.onRendered(windowResizeHandler);

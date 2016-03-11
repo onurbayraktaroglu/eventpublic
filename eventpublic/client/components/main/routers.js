@@ -12,7 +12,14 @@ Router.route('/', {
 AccountsTemplates.configureRoute('signIn',{
 	redirect: '/home'
 });
+Template.home.events({
 
+  'click .logout': function() {
+    Meteor.logout(function() {
+      Router.go('Index');
+    });
+  }
+});
 AccountsTemplates.configure({
     // Behavior
     confirmPassword: true,

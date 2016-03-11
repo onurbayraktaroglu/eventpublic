@@ -1,5 +1,11 @@
 <template name="homeLayout">
+    {{> map}}
     {{> yield}}
+</template>
+<template name="map">  
+  <div class="map-container">
+    {{> googleMap name="map" options=mapOptions}}
+  </div>
 </template>
 <template name="home">
         <!-- Header -->
@@ -35,7 +41,7 @@
                         <li><a href="profile.html"><span class="icon-user"></span>Profile</a></li>
                         <li><a href="#"><span class="icon-bell"></span>Notifications <span class="badge pull-right bg-red">5</span></a></li>
                         <li class="divider"></li>
-                        <li><a href="#"><span class="icon-power"></span>Logout</a></li>
+                        <li><a href="#" class="logout"><span class="icon-power"></span>Logout</a></li>
                     </ul>
                 </div>
             </div>
@@ -166,7 +172,7 @@
                     <li><a href="profile.html"><span class="icon-user"></span>Profile</a></li>
                     <li><a href="#"><span class="icon-bell"></span>Notifications <span class="badge pull-right bg-red">5</span></a></li>
                     <li class="divider"></li>
-                    <li><a href="#"><span class="icon-power"></span>Logout</a></li>
+                    <li><a href="#" class="logout"><span class="icon-power"></span>Logout</a></li>
                 </ul>
             </div>
         </div>
@@ -175,7 +181,11 @@
         <!-- Content -->
 
         <div id="wrapper">
-            <div id="mapView" class="mob-min"><div class="mapPlaceholder"><span class="fa fa-spin fa-spinner"></span> Loading map...</div></div>
+            <div id="mapView" class="mob-min">
+                <div class="mapPlaceholder">
+                    {{>map}}
+                </div>
+            </div>
             <div id="content" class="mob-max">
                 <div class="singleTop">
                     <div id="carouselFull" class="carousel slide" data-ride="carousel">
