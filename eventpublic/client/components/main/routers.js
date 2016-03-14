@@ -12,7 +12,8 @@ Router.route('/', {
 AccountsTemplates.configureRoute('signIn',{
 	redirect: '/home'
 });
-Template.home.events({
+
+Template.homeLayout.events({
 
   'click .logout': function() {
     Meteor.logout(function() {

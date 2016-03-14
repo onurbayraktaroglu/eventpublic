@@ -5135,6 +5135,10 @@ blockquote {
 .map-container {
   width: 100%;
   max-width: 100%;
+}
+.homeLayoutContent {
+    overflow-x: hidden;
+    overflow-y: auto;
 }   
 /* Media Queries */
 

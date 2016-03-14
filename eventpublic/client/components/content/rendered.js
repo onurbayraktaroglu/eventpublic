@@ -1,6 +1,8 @@
 windowResizeHandler = function() {
     $('body').removeClass('no-hidden');
-    
+    $(".card").click(function() {
+       window.open($(this).attr('data-linkto'), '_self');
+    });
     windowHeight = window.innerHeight;
     windowWidth = $(window).width();
     contentHeight = windowHeight - $('#header').height();
@@ -87,3 +89,5 @@ navHandler = function(){
 
 Template.home.onRendered(navHandler);
 Template.home.onRendered(windowResizeHandler);
+Template.eventDetail.onRendered(navHandler);
+Template.eventDetail.onRendered(windowResizeHandler);

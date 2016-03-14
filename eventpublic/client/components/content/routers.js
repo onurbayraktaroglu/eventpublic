@@ -7,3 +7,7 @@ Router.configure({
 Router.route('/home', {
   name: 'home',
 });
+
+Router.route('/event-detail', {
+  name: 'eventDetail',
+});
